@@ -1,9 +1,7 @@
-function extractUrlWithDate(text: string): string | null {
+function extractUrlWithDate(text) {
   const urlRegex = new RegExp(`(https:\/\/wng\.org\/podcasts\/the-world-and-everything-in-it-)([a-z]+)(.*)"`);
 
   const match = urlRegex.exec(text);
-  console.log('yolo', text, match)
-
   if (match) {
     const urlBase = match[1];
     const month = match[2];
@@ -25,10 +23,8 @@ function extractUrlWithDate(text: string): string | null {
     ];
 
 
-    console.log('monaths', months, month, months.includes(month))
-
     if (months.includes(month)){
-      console.log(urlBase + month + theRest)
+      console.log('the episode url', urlBase + month + theRest)
       return urlBase + month + theRest;
     }
   }
@@ -36,4 +32,4 @@ function extractUrlWithDate(text: string): string | null {
   return null;
 }
 
-export { extractUrlWithDate };
+export default extractUrlWithDate;
