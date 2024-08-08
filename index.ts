@@ -1,6 +1,6 @@
 // import axios from 'axios';
 import OpenAI from 'openai';
-import { extractPodcastTitleUrl } from './src/extractUrlWithDate';
+import { extractUrlWithDate } from './src/extractUrlWithDate';
 
 const myApiTokenFile = Bun.file(process.env.HOME + "/.openai-credentials");
 
@@ -28,7 +28,7 @@ async function fetchHTML(url: string): Promise<string | null> {
   //   return null;
   // }
 
-	return 'howdy \n dowdy \n doody https://wng.org/podcasts/the-world-and-everything-in-it-august-8-2024-1723048334 shmoop';
+	return 'howdy \n dowdy \n doody "https://wng.org/podcasts/the-world-and-everything-in-it-august-8-2024-1723048334" shmoop';
 }
 
 async function main() {
@@ -40,7 +40,7 @@ async function main() {
 	}
 
 	// console.log(html);
-	console.log(extractPodcastTitleUrl(html, url));
+	console.log(extractUrlWithDate(html));
 }
 
 main();

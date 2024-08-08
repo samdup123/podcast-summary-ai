@@ -8,21 +8,16 @@ const url = (podcastTitleUrl: string, date: string) => {
 
 describe('Date Extraction', () => {
 
-  const baseUrl = `"https://podcast.org/the-world-and-everything-in-it"`;
-
-  const podcastTitleUrl = `"https://podcast.org/the-world-and-everything-in-it-august-8-2024-1723048334"`;
-  const differentPodcastTitleUrl = `"https://podcast.org/the-world-and-everything-in-it-2-august-8-2024-1723048334"`;
-  const wrongPodcastTitleUrl = `"https://podcast.org/the-world-and-everything-in-that-august-8-2024-1723048334"`;
-
+  const podcastTitleUrl = `https://wng.org/podcasts/the-world-and-everything-in-it-august-8-2024-1723048334`;
 
   test('should accept valid date', () => {
-    expect(extractUrlWithDate(podcastTitleUrl, baseUrl)).
-      toBe('https://podcast.org/the-world-and-everything-in-it-august-8-2024-1723048334');
+    expect(extractUrlWithDate('"' + podcastTitleUrl + '"')).
+      toBe(podcastTitleUrl);
   })
 
   test('should only return the url', () => {
-    expect(extractUrlWithDate('more text here!: ' + podcastTitleUrl + ' and even more\nover here!', baseUrl)).
-      toBe('https://podcast.org/the-world-and-everything-in-it-august-8-2024-1723048334');
+    expect(extractUrlWithDate('"more text here!: ' + podcastTitleUrl + ' and even more\nover here!"')).
+      toBe(podcastTitleUrl);
   })
 
 });

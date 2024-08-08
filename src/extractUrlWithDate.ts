@@ -1,8 +1,8 @@
-function extractUrlWithDate(text: string, baseUrl: string, dateformat: string): string | null {
-  const urlRegex = new RegExp(`(https\:\/\/podcast\.org\/the-world-and-everything-in-it-)([a-zA-Z]+)(.*)"`);
+function extractUrlWithDate(text: string): string | null {
+  const urlRegex = new RegExp(`(https:\/\/wng\.org\/podcasts\/the-world-and-everything-in-it-)([a-z]+)(.*)"`);
 
   const match = urlRegex.exec(text);
-  console.log('yolo', match)
+  console.log('yolo', text, match)
 
   if (match) {
     const urlBase = match[1];
@@ -28,6 +28,7 @@ function extractUrlWithDate(text: string, baseUrl: string, dateformat: string): 
     console.log('monaths', months, month, months.includes(month))
 
     if (months.includes(month)){
+      console.log(urlBase + month + theRest)
       return urlBase + month + theRest;
     }
   }
