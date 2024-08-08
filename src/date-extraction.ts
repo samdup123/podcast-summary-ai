@@ -2,7 +2,6 @@ function extractDate(url: string): string | null {
   const dateRegex = /([a-zA-Z]+)-(\d{1,2})-(\d{4})/;
   const match = url.match(dateRegex);
 
-  console.log(match, url);
   if (match) {
     const month = match[1].toLowerCase();
     const day = parseInt(match[2], 10);
