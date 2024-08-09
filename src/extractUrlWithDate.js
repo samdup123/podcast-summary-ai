@@ -24,7 +24,6 @@ function extractUrlWithDate(text) {
 
 
     if (months.includes(month)){
-      console.log('the episode url', urlBase + month + theRest)
       return urlBase + month + theRest;
     }
   }
